@@ -17,7 +17,7 @@ import com.google.gwt.user.client.ui.Widget;
 public interface PageContainerLayout {
 
 	/**
-	 * Content is defined as the root of the layour. ie: A vertical panel containing
+	 * Content is defined as the root of the layout. ie: A vertical panel containing
 	 * all components of this layout.
 	 * @return the content pane.
 	 */
