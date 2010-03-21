@@ -5,7 +5,11 @@ import net.bugsquat.gwtsite.client.page.PageId;
 import net.bugsquat.gwtsite.client.page.Pages;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 
 
 public class PageLoader {
@@ -21,7 +25,9 @@ public class PageLoader {
     	// NOTE: Deferred bind dictates what instance is to be created (module definition).
     	pages = GWT.create(Pages.class);
         pageContainer = new PageContainer();
-        RootPanel.get().add(pageContainer);
+        ScrollPanel scroll = new ScrollPanel();
+        scroll.add(pageContainer);
+        RootLayoutPanel.get().add(scroll);
     }
 
     public static PageLoader getInstance() {

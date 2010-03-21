@@ -1,17 +1,17 @@
 package net.bugsquat.gwtsite.client.page;
 
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.FlowPanel;
 
 @SuppressWarnings("unchecked")
 public abstract class Page<C extends PageController> extends Composite {
 
-    protected VerticalPanel content;
+    protected FlowPanel content;
 
     public Page() {
-        content = new VerticalPanel();
+        content = new FlowPanel();
         initWidget(content);
-        content.setStyleName("ted-content");
+        content.setStyleName("page-content");
     }
 
     /**

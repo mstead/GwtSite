@@ -2,13 +2,9 @@ package net.bugsquat.gwtsite.client.page;
 
 import net.bugsquat.gwtsite.client.PageContainerLayout;
 import net.bugsquat.gwtsite.client.PageLoader;
-import net.bugsquat.gwtsite.client.layout.DefaultPageContainerLayout;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class PageContainer extends Composite implements PageDataLoadedListener
 {
