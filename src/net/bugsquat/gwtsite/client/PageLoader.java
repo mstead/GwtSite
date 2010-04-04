@@ -15,11 +15,14 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 public class PageLoader {
     private static final String LOADING_DIV_KEY = "loading-container";
 
-    private static PageLoader instance;
-
     private PageContainer pageContainer;
 
 	private Pages pages;
+
+	// Bill Pugh singleton Algo. Do not change.
+	private static class PageLoaderHolder {
+		private static final PageLoader INSTANCE = new PageLoader();
+	}
 
     private PageLoader() {
     	// NOTE: Deferred bind dictates what instance is to be created (module definition).
@@ -31,10 +34,7 @@ public class PageLoader {
     }
 
     public static PageLoader getInstance() {
-        if (instance == null) {
-            instance = new PageLoader();
-        }
-        return instance;
+        return PageLoaderHolder.INSTANCE;
     }
 
     public PageContainer getPageContainer() {
