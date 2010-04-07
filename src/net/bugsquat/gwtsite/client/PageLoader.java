@@ -2,7 +2,7 @@ package net.bugsquat.gwtsite.client;
 
 import net.bugsquat.gwtsite.client.page.PageContainer;
 import net.bugsquat.gwtsite.client.page.PageId;
-import net.bugsquat.gwtsite.client.page.Pages;
+import net.bugsquat.gwtsite.client.page.PageControllerRegistry;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
@@ -13,7 +13,7 @@ public class PageLoader {
 
 	private PageContainer pageContainer;
 
-	private Pages pages;
+	private PageControllerRegistry pages;
 
 	// Bill Pugh singleton Algo. Do not change.
 	private static class PageLoaderHolder {
@@ -24,7 +24,7 @@ public class PageLoader {
 		GwtSiteResources.INSTANCE.css().ensureInjected();
 
 		// NOTE: Deferred bind dictates what instance is to be created (module definition).
-		pages = GWT.create(Pages.class);
+		pages = GWT.create(PageControllerRegistry.class);
 		pageContainer = new PageContainer();
 		ScrollPanel scroll = new ScrollPanel();
 		scroll.add(pageContainer);
@@ -48,7 +48,7 @@ public class PageLoader {
 	}
 
 	public void loadPage(PageId pageId) {
-		pageContainer.load(pages.getPage(pageId));
+		pageContainer.load(pages.getPageController(pageId));
 	}
 
 }
