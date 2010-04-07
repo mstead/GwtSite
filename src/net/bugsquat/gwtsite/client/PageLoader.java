@@ -13,7 +13,7 @@ public class PageLoader {
 
 	private PageContainer pageContainer;
 
-	private PageControllerRegistry pages;
+	private PageControllerRegistry controllerRegistry;
 
 	// Bill Pugh singleton Algo. Do not change.
 	private static class PageLoaderHolder {
@@ -24,7 +24,7 @@ public class PageLoader {
 		GwtSiteResources.INSTANCE.css().ensureInjected();
 
 		// NOTE: Deferred bind dictates what instance is to be created (module definition).
-		pages = GWT.create(PageControllerRegistry.class);
+		controllerRegistry = GWT.create(PageControllerRegistry.class);
 		pageContainer = new PageContainer();
 		ScrollPanel scroll = new ScrollPanel();
 		scroll.add(pageContainer);
@@ -48,7 +48,7 @@ public class PageLoader {
 	}
 
 	public void loadPage(PageId pageId) {
-		pageContainer.load(pages.getPageController(pageId));
+		pageContainer.load(controllerRegistry.getPageController(pageId));
 	}
 
 }
